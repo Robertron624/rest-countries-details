@@ -181,6 +181,19 @@ $white : hsl(0, 0%, 100%);
   grid-template-columns: repeat(2, 1fr);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
 // Body themes
 
 body {
@@ -197,17 +210,21 @@ body {
   --body-color: hsl(207, 26%, 17%);
   --container-background: hsl(209, 23%, 22%); 
   --main-text: hsl(0, 0%, 100%);
+  --glass-color: hsla(0, 0%, 100%);
+  --custom-box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
 
 
 body[data-theme="dark"] {
-  --body-color: hsl(207, 26%, 17%);
+  background-color: hsl(207, 26%, 17%);
   --container-background: hsl(209, 23%, 22%); 
   --main-text: hsl(0, 0%, 100%);
+  --glass-color: hsla(0, 0%, 100%);
 }
 
 body[data-theme="light"] {
-  --body-color: hsl(0, 0%, 98%);
+  background-color: hsl(0, 0%, 98%);
   --container-background: hsl(0, 0%, 100%);
   --main-text: hsl(200, 15%, 8%);
+  --glass-color: hsl(0, 0%, 52%);
 }

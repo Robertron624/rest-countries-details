@@ -1,0 +1,26 @@
+@import url('../index.scss');
+
+.search-form {
+    margin-top: 2rem;
+    width: 90%;
+    background-color: var(--container-background);
+    border-radius: 10px;
+    padding: 0 2rem;
+    gap: 2rem;
+    height: 3rem;
+    box-shadow: var(--custom-box-shadow);
+
+    input {
+        border: none;
+        background-color: inherit;
+        font-size: .8rem;
+        height: 100%;
+        &::placeholder {
+            color: var(--main-text);
+        }
+    }
+
+    svg {
+        color: var(--glass-color);
+    }
+}
