@@ -4,6 +4,7 @@ import './App.scss'
 import Layout from './Layout/Layout'
 import SearchCountry from './components/SearchCountry'
 import Filters from './components/Filters'
+import CountryList from './components/CountryList'
 
 import { Filter } from './types'
 
@@ -18,7 +19,6 @@ const filtersOptions:Filter[] = [
 function App() {
 
   const [search, setSearch] = useState<string>("")
-
   const [currrentFilter, setCurrentFilter] = useState<Filter | null>(null)
 
   return (
@@ -26,6 +26,7 @@ function App() {
       <Layout >
         <SearchCountry searchTerm={search} setSearchTerm={setSearch} />
         <Filters filters={filtersOptions} currentFilter={currrentFilter} setCurrentFilter={setCurrentFilter} />
+        <CountryList />
       </Layout>
     </>
   )
