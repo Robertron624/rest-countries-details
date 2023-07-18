@@ -7,8 +7,6 @@
   font-family: 'Nunito Sans', sans-serif, system-ui, Avenir, Helvetica, Arial;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,8 +29,9 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: none;
+  background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 /* Box sizing rules */
@@ -103,19 +102,8 @@ select {
   }
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  font-size: 16px;
 
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-// Variables
+// Color Variables
 
 // (Dark Mode Elements)
 $dark-blue : hsl(209, 23%, 22%);
@@ -134,3 +122,92 @@ $very-light-gray : hsl(0, 0%, 98%);
 
 // (Dark Mode Text & Light Mode Elements)
 $white : hsl(0, 0%, 100%);
+
+// Utilitie Classes
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.margin-center {
+  margin-inline: auto;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+// Body themes
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  font-size: 16px;
+
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+
+  // Default theme
+  --body-color: hsl(207, 26%, 17%);
+  --container-background: hsl(209, 23%, 22%); 
+  --main-text: hsl(0, 0%, 100%);
+}
+
+
+body[data-theme="dark"] {
+  --body-color: hsl(207, 26%, 17%);
+  --container-background: hsl(209, 23%, 22%); 
+  --main-text: hsl(0, 0%, 100%);
+}
+
+body[data-theme="light"] {
+  --body-color: hsl(0, 0%, 98%);
+  --container-background: hsl(0, 0%, 100%);
+  --main-text: hsl(200, 15%, 8%);
+}

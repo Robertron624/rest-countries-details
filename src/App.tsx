@@ -1,13 +1,14 @@
-
 import './App.scss'
+import Layout from './Layout/Layout'
 
 function App() {
-
   return (
     <>
-      <h1>
-        Hello, world!
-      </h1>
+      <Layout >
+        <h1>
+          Hello, world!
+        </h1>
+      </Layout>
     </>
   )
 }
