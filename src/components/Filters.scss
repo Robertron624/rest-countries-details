@@ -1,0 +1,19 @@
+.filters {
+    margin-top: 2.5rem;
+    background-color: var(--container-background);
+    width: 50%;
+    height: 3rem;
+    border-radius: 5px;
+
+    select {
+        width: 100%;
+        border: none;
+        padding: 0 1rem;
+        border-radius: 5px;
+        background-color: inherit;
+        font-size: .8rem;
+        height: 100%;
+        color: var(--main-text);
+        cursor: pointer;
+    }
+}

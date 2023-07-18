@@ -16,8 +16,8 @@ const SearchCountry = ({ searchTerm, setSearchTerm }: Props) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="search-form flex margin-center align-center">
-            <label className="sr-only" htmlFor="country">
+        <form name="search-form" onSubmit={handleSubmit} className="search-form flex mx-auto align-center">
+            <label className="sr-only" htmlFor="country-search">
                 Country
             </label>
             <svg width={16} height={16} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -28,8 +28,8 @@ const SearchCountry = ({ searchTerm, setSearchTerm }: Props) => {
                 onChange={handleChange}
                 value={searchTerm}
                 type="text"
-                name="country"
-                id=""
+                name="country-search"
+                id="country-search"
             />
         </form>
     );
