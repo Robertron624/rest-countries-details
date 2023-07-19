@@ -1,5 +1,11 @@
 import { Country } from "../types";
 import "./CountryCard.scss";
+
+
+const formatPopulation = (population: number) => {
+    return population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const CountryCard = (country: Country) => {
     const { name, population, region, capital, flags } = country;
 
@@ -12,7 +18,7 @@ const CountryCard = (country: Country) => {
                 <h3 className="country-name">{name.common}</h3>
                 <div className="short-info">
                     <p>
-                        <span>Population:</span> {population}
+                        <span>Population:</span> {formatPopulation(population)}
                     </p>
                     <p>
                         <span>Region:</span> {region}

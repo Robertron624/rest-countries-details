@@ -1,18 +1,21 @@
+import React, { useState } from "react";
 import "./SearchCountry.scss";
 
 interface Props {
-    searchTerm: string;
     setSearchTerm: (searchTerm: string) => void;
 }
 
-const SearchCountry = ({ searchTerm, setSearchTerm }: Props) => {
+const SearchCountry = ({ setSearchTerm }: Props) => {
+
+    const [localSearchTerm, setLocalSearchTerm] = useState<string>("");
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
+        setLocalSearchTerm(e.target.value);
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(searchTerm);
+        setSearchTerm(localSearchTerm);
     };
 
     return (
@@ -26,7 +29,7 @@ const SearchCountry = ({ searchTerm, setSearchTerm }: Props) => {
             <input
                 placeholder="Search for a country..."
                 onChange={handleChange}
-                value={searchTerm}
+                value={localSearchTerm}
                 type="text"
                 name="country-search"
                 id="country-search"

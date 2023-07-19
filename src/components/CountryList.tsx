@@ -16,8 +16,6 @@ const CountryList = ({ currentFilter }: Props) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
 
-    console.log(currentFilter);
-
     useEffect(() => {
         // Get all countries from the API
         const fetchCountries = async () => {
