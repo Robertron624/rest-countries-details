@@ -26,7 +26,7 @@ function App() {
       <Layout >
         <SearchCountry searchTerm={search} setSearchTerm={setSearch} />
         <Filters filters={filtersOptions} currentFilter={currrentFilter} setCurrentFilter={setCurrentFilter} />
-        <CountryList />
+        <CountryList currentFilter={currrentFilter} />
       </Layout>
     </>
   )

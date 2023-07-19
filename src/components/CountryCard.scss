@@ -4,11 +4,19 @@
     border-radius: 5px;
     box-shadow: var(--custom-box-shadow);
     color: var(--main-text);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+    }
 
     .image-container {
         border-radius: 5px 5px 0 0;
         img {
             border-radius: 5px 5px 0 0;
+            width: 100%;
+            aspect-ratio: 16/9;
         }
     }
 
