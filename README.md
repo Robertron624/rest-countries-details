@@ -82,6 +82,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - [How to Add and Use Google and Custom Fonts in React App](https://www.positronx.io/react-js-include-custom-fonts-google-fonts-tutorial/) - This helped me to add custom fonts to my React project without needing a CDN, thus improving performance. I'd recommend it to anyone still learning this concept.
 
+- [Pure CSS loaders](https://loading.io/css/) - This helped me to add a loading spinner when fetching data from the API. I'd recommend it to anyone still learning this concept.
+
 
 ## Author
 
