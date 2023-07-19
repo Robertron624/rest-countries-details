@@ -3,6 +3,7 @@ import "./SearchResult.scss";
 import useSearch from "../hooks/useSearch";
 import CountryCard from "./CountryCard";
 import Spinner from "./Spinner";
+import CountryNotFound from "./CountryNotFound";
 
 interface Props {
     searchTerm: string;
@@ -17,7 +18,7 @@ const SearchResult = ({ searchTerm }: Props) => {
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return <CountryNotFound />
     }
 
     return (
