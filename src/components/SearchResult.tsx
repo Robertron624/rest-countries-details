@@ -2,6 +2,7 @@ import "./SearchResult.scss";
 
 import useSearch from "../hooks/useSearch";
 import CountryCard from "./CountryCard";
+import Spinner from "./Spinner";
 
 interface Props {
     searchTerm: string;
@@ -12,7 +13,7 @@ const SearchResult = ({ searchTerm }: Props) => {
     const { countries, isLoading, error } = useSearch(searchTerm);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Spinner />;
     }
 
     if (error) {
@@ -20,7 +21,7 @@ const SearchResult = ({ searchTerm }: Props) => {
     }
 
     return (
-        <div>
+        <div className="results-area">
             {countries.map((country) => (
                 <CountryCard key={country.name.common} {...country} />
             ))}

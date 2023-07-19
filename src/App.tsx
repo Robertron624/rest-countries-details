@@ -30,10 +30,13 @@ function App() {
                     currentFilter={currrentFilter}
                     setCurrentFilter={setCurrentFilter}
                 />
-                <CountryList currentFilter={currrentFilter} />
 
-                {/* If the search term is not empty, show the search results */}
-                {search == "" ? <></> : <SearchResult searchTerm={search} />}
+                {/* If the search term is empty, show the countries list, otherwise (there IS a search term) show the results */}
+                {search == "" ? (
+                    <CountryList currentFilter={currrentFilter} />
+                ) : (
+                  <SearchResult searchTerm={search}/>
+                )}
             </Layout>
         </>
     );

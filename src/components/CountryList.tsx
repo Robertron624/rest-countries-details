@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Country } from "../types";
+import { Country, Filter } from "../types";
 import CountryCard from "./CountryCard";
-import { Filter } from "../types";
+import Spinner from "./Spinner";
 
 import "./CountryList.scss";
 
@@ -62,7 +62,7 @@ const CountryList = ({ currentFilter }: Props) => {
     }, [currentFilter]);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Spinner />;
     }
 
     if (error) {
