@@ -1,0 +1,36 @@
+.country-card {
+    width: 90%;
+    background-color: var(--container-background);
+    border-radius: 5px;
+    box-shadow: var(--custom-box-shadow);
+    color: var(--main-text);
+
+    .image-container {
+        border-radius: 5px 5px 0 0;
+        img {
+            border-radius: 5px 5px 0 0;
+        }
+    }
+
+    .bottom {
+        padding: 1.5rem 2rem 2rem;
+
+        .country-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .short-info {
+            p {
+                font-size: 0.8rem;
+                font-weight: 300;
+
+                span {
+                    font-weight: 600;
+                    font-size: .9rem;
+                }
+            }
+        }
+    }
+}
