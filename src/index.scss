@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Nunito Sans';
-  src: url('./fonts/NunitoSans-VariableFont.ttf') format('truetype');
+  src: url('../src/fonts/NunitoSans-VariableFont.ttf') format('truetype');
 }
 
 :root {
@@ -233,4 +233,12 @@ body[data-theme="light"] {
   --container-background: hsl(0, 0%, 100%);
   --main-text: hsl(200, 15%, 8%);
   --glass-color: hsl(0, 0%, 52%);
+}
+
+// Mixin media query desktop
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
 }

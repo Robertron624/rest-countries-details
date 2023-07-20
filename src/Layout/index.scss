@@ -5,15 +5,19 @@ header {
     background-color: var(--container-background);
     color: var(--main-text);
     box-shadow: var(--custom-box-shadow);
-    a {
-        color: var(--main-text);
-        font-weight: 800;
-    }
 
-    button {
-        font-weight: 300;
-        color: var(--main-text);
-        gap: .5rem;
+    .header-inner {
+        width: 100%;
+        max-width: 1280px;
+        a {
+            color: var(--main-text);
+            font-weight: 800;
+        }
+    
+        button {
+            font-weight: 300;
+            color: var(--main-text);
+            gap: .5rem;
+        }
     }
-
 }

@@ -1,3 +1,5 @@
+@import '../index.scss';
+
 .country-card {
     width: 90%;
     background-color: var(--container-background);
@@ -6,6 +8,11 @@
     color: var(--main-text);
     cursor: pointer;
     transition: all .2s ease-in-out;
+
+    @include desktop {
+        width: 100%;
+        height: 22.25rem;
+    }
 
     &:hover {
         transform: scale(1.02);

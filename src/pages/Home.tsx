@@ -22,13 +22,14 @@ function Home() {
 
     return (
         <>
+            <div className="search-and-filters">
                 <SearchCountry setSearchTerm={setSearch} />
                 <Filters
                     filters={filtersOptions}
                     currentFilter={currrentFilter}
                     setCurrentFilter={setCurrentFilter}
                 />
-
+            </div>
                 {/* If the search term is empty, show the countries list, otherwise (there IS a search term) show the results */}
                 {search == "" ? (
                     <CountryList currentFilter={currrentFilter} />

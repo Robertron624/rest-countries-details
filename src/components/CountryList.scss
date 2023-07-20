@@ -1,7 +1,13 @@
+@import '../index.scss';
+
 .list-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 2rem;
     margin-top: 6rem;
     margin-bottom: 4rem;
+
+    @include desktop {
+        gap: 3rem;
+    }
 }

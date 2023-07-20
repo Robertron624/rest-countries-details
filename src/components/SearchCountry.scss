@@ -1,4 +1,4 @@
-@import url('../index.scss');
+@import '../index.scss';
 
 .search-form {
     margin-top: 2rem;
@@ -9,6 +9,10 @@
     height: 3rem;
     box-shadow: var(--custom-box-shadow);
 
+    @include desktop {
+        margin: 0 auto 0 0 !important;
+    }
+
     input {
         border: none;
         background-color: inherit;
@@ -17,6 +21,10 @@
         color: var(--main-text);
         &::placeholder {
             color: var(--main-text);
+        }
+
+        @include desktop {
+            width: 18rem;
         }
     }
 

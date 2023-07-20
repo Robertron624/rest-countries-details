@@ -1,11 +1,19 @@
+@import '../index.scss';
 #root {
-  max-width: 1280px;
-  // margin: 0 auto;
-  // padding: 2rem;
   text-align: center;
   width: 100%;
 }
 
 main {
   width: 90%;
+
+  .search-and-filters {
+    
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4rem;
+    }
+  }
 }
