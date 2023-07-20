@@ -12,6 +12,14 @@
         color: var(--main-text);
         display: inline-block;
         align-self: left;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;;
+
+        svg {
+            width: 20px;
+        }
     }
 
     .country-details {

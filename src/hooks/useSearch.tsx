@@ -12,8 +12,14 @@ const useSearch = (searchTerm: string) => {
     const [error, setError] = useState<string>("");
 
     useEffect(() => {
-        const BASE_URL = `https://restcountries.com/v3.1/name/${searchTerm}`;
+        let BASE_URL:string;
 
+        // If the search term is 3 characters long, search by country code
+        if(searchTerm.length === 3) {
+            BASE_URL = `https://restcountries.com/v3.1/alpha/${searchTerm}`;
+        } else {
+            BASE_URL = `https://restcountries.com/v3.1/name/${searchTerm}`;
+        }
         // Get all countries from the API
         const searchCountry = async () => {
             setIsLoading(true);

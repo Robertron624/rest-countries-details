@@ -208,6 +208,10 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 
+  & > * {
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  }
+
   // Default theme
   --body-color: hsl(207, 26%, 17%);
   --container-background: hsl(209, 23%, 22%); 
