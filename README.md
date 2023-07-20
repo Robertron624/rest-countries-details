@@ -84,6 +84,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - [Pure CSS loaders](https://loading.io/css/) - This helped me to add a loading spinner when fetching data from the API. I'd recommend it to anyone still learning this concept.
 
+-[A Complete Guide to Routing in React](https://hygraph.com/blog/routing-in-react) - This helped me to understand how to use React Router to create a multi-page application. It's pretty easy to follow.
+
 
 ## Author
 
