@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import "./App.scss";
-import Layout from "../Layout/Layout";
+import "./Home.scss";
 import SearchCountry from "../components/SearchCountry";
 import Filters from "../components/Filters";
 import CountryList from "../components/CountryList";
@@ -23,7 +22,6 @@ function Home() {
 
     return (
         <>
-            <Layout>
                 <SearchCountry setSearchTerm={setSearch} />
                 <Filters
                     filters={filtersOptions}
@@ -37,7 +35,6 @@ function Home() {
                 ) : (
                     <SearchResult searchTerm={search} />
                 )}
-            </Layout>
         </>
     );
 }
