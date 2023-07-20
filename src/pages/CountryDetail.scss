@@ -1,3 +1,5 @@
+@import '../index.scss';
+
 .country-page {
     margin: 2rem 0rem;
     display: flex;
@@ -24,62 +26,108 @@
 
     .country-details {
         margin: 2rem 0;
-    
-        .flag-container {
-            img {
-                height: 200px;
-                width: 100%;
-            }
+
+        @include desktop {
+            margin: 4rem 0;
         }
 
-        .main-info {
-            margin-top: 2rem;
-            text-align: left;
-            color: var(--main-text);
+        .country-info {
 
-            .country-name {
-                font-size: 1.5rem;
-                font-weight: 800;
-                margin-bottom: 1rem;
+            @include desktop {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
             }
+            .flag-container {
+                box-shadow: var(--custom-box-shadow);
 
-            ul {
-                margin-top: 2rem;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
+                @include desktop {
+                    height: fit-content;
+                }
+                img {
+                    height: 200px;
+                    width: 100%;
 
-                li {
-                    span {
-                        font-weight: 800;
+                    @include desktop {
+                        height: 350px;
+                        aspect-ratio: 16/9;
                     }
                 }
             }
-        }
 
-        .borders {
-            margin-top: 3rem;
-            text-align: left;
-            color: var(--main-text);
-            .border-countries {
-                margin-top: 1.5rem;
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-    
-                .border-country {
-                    text-align: center;
-                    width: 9rem;
-                    border-radius: 5px;
-                    box-shadow: var(--custom-box-shadow);
-                    padding: .8rem 0;
-                    background-color: var(--container-background);
+            .info-and-borders {
+
+                .main-info {
+                    margin-top: 2rem;
+                    text-align: left;
                     color: var(--main-text);
-                    display: inline-block;
-                    align-self: left;
+
+                    @include desktop {
+                        margin-top: 0;
+                    }
+        
+                    .country-name {
+                        font-size: 1.5rem;
+                        font-weight: 800;
+                        margin-bottom: 1rem;
+                    }
+
+                    div {
+                        @include desktop {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                        }
+
+                        ul {
+                            margin-top: 2rem;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+            
+                            li {
+                                span {
+                                    font-weight: 800;
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .borders {
+                    margin-top: 3rem;
+                    text-align: left;
+                    color: var(--main-text);
+
+                    @include desktop {
+                        display: flex;
+                        gap: 2rem;
+                    }
+
+                    .border-countries {
+                        margin-top: 1.5rem;
+                        display: flex;
+                        gap: 1rem;
+                        flex-wrap: wrap;
+
+                        @include desktop {
+                            margin-top: 0;
+                            justify-content: flex-end;
+                        }
+            
+                        .border-country {
+                            text-align: center;
+                            width: 9rem;
+                            border-radius: 5px;
+                            box-shadow: var(--custom-box-shadow);
+                            padding: .8rem 0;
+                            background-color: var(--container-background);
+                            color: var(--main-text);
+                            display: inline-block;
+                        }
+                    }
                 }
             }
-        }
-        
+
+        }  
     }
 }

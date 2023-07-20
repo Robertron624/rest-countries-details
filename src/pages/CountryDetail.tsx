@@ -39,7 +39,12 @@ const CountryDetail = () => {
     return (
         <div className="country-page">
             <NavLink to={`/`} className="go-back">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentcolor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        fill="currentcolor"
+                        d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
+                    />
+                </svg>
                 Back
             </NavLink>
             <div className="country-details">
@@ -51,64 +56,71 @@ const CountryDetail = () => {
                                 alt={currentCountry.name.common}
                             />
                         </div>
-                        <div className="main-info">
-                            <h1 className="country-name">
-                                {currentCountry.name.common}
-                            </h1>
-                            <ul>
-                                <li>
-                                    <span>Population:</span>{" "}
-                                    {currentCountry.population.toLocaleString()}
-                                </li>
-                                <li>
-                                    <span>Region:</span> {currentCountry.region}
-                                </li>
-                                <li>
-                                    <span>Sub Region:</span>{" "}
-                                    {currentCountry.subregion}
-                                </li>
-                                <li>
-                                    <span>Capital:</span>{" "}
-                                    {currentCountry.capital}
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <span>Top Level Domain:</span>{" "}
-                                    {currentCountry.tld}
-                                </li>
-                                <li>
-                                    <span>Currencies:</span>{" "}
-                                    {getAllCurrencies(
-                                        currentCountry.currencies
-                                    )}
-                                </li>
-                                <li>
-                                    <span>Languages:</span>{" "}
-                                    {Object.values(
-                                        currentCountry.languages
-                                    ).join(", ")}
-                                </li>
-                            </ul>
-                        </div>
-                        {currentCountry.borders ? (
-                          <div className="borders">
-                            <h3>Border Countries:</h3>
-                            <div className="border-countries">
-                                {currentCountry.borders.map((border) => {
-                                    return (
-                                        <NavLink
-                                            to={`/country/${border}`}
-                                            key={border}
-                                            className="border-country"
-                                        >
-                                            {border}
-                                        </NavLink>
-                                    );
-                                })}
+                        <div className="info-and-borders">
+                            <div className="main-info">
+                                <h1 className="country-name">
+                                    {currentCountry.name.common}
+                                </h1>
+                                <div>
+                                  <ul>
+                                      <li>
+                                          <span>Population:</span>{" "}
+                                          {currentCountry.population.toLocaleString()}
+                                      </li>
+                                      <li>
+                                          <span>Region:</span>{" "}
+                                          {currentCountry.region}
+                                      </li>
+                                      <li>
+                                          <span>Sub Region:</span>{" "}
+                                          {currentCountry.subregion}
+                                      </li>
+                                      <li>
+                                          <span>Capital:</span>{" "}
+                                          {currentCountry.capital}
+                                      </li>
+                                  </ul>
+                                  <ul>
+                                      <li>
+                                          <span>Top Level Domain:</span>{" "}
+                                          {currentCountry.tld}
+                                      </li>
+                                      <li>
+                                          <span>Currencies:</span>{" "}
+                                          {getAllCurrencies(
+                                              currentCountry.currencies
+                                          )}
+                                      </li>
+                                      <li>
+                                          <span>Languages:</span>{" "}
+                                          {Object.values(
+                                              currentCountry.languages
+                                          ).join(", ")}
+                                      </li>
+                                  </ul>
+                                </div>
                             </div>
+                            {currentCountry.borders ? (
+                                <div className="borders">
+                                    <h3>Border Countries:</h3>
+                                    <div className="border-countries">
+                                        {currentCountry.borders.map(
+                                            (border) => {
+                                                return (
+                                                    <NavLink
+                                                        to={`/country/${border}`}
+                                                        key={border}
+                                                        className="border-country"
+                                                    >
+                                                        {border}
+                                                    </NavLink>
+                                                );
+                                            }
+                                        )}
+                                    </div>
+                                </div>
+                            ) : null}
                         </div>
-                        ): null}
                     </div>
                 )}
             </div>
