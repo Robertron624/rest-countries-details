@@ -37,7 +37,6 @@ const useSearch = (searchTerm: string) => {
             }
         };
 
-        // Function for filtering countries by region
         void searchCountry();
     }, [searchTerm]);
 
