@@ -123,6 +123,11 @@
                             background-color: var(--container-background);
                             color: var(--main-text);
                             display: inline-block;
+                            transition: all .2s ease-in-out;
+
+                            &:hover {
+                                transform: scale(1.02);
+                            }
                         }
                     }
                 }
