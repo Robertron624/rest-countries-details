@@ -4,6 +4,7 @@ import Spinner from "../components/Spinner";
 import useSearch from "../hooks/useSearch";
 import { NavLink } from "react-router-dom";
 import { Currencies } from "../types";
+import { Languages } from "../types";
 
 interface Currency {
     name: string;
@@ -11,12 +12,29 @@ interface Currency {
 }
 
 const getAllCurrencies = (currencies: Currencies): string => {
+    if (!currencies) {
+        return "N/A";
+    }
+
     const currenciesAsString = Object.values(currencies).map(
         (currency: Currency) => {
             return currency.name;
         }
     );
     return currenciesAsString.join(", ");
+};
+
+const getAllLanguages = (languages: Languages): string => {
+    if (!languages) {
+        return "N/A";
+    }
+
+    const languagesAsString = Object.values(languages).map(
+        (language: string) => {
+            return language;
+        }
+    );
+    return languagesAsString.join(", ");
 };
 
 const CountryDetail = () => {
@@ -62,42 +80,42 @@ const CountryDetail = () => {
                                     {currentCountry.name.common}
                                 </h1>
                                 <div>
-                                  <ul>
-                                      <li>
-                                          <span>Population:</span>{" "}
-                                          {currentCountry.population.toLocaleString()}
-                                      </li>
-                                      <li>
-                                          <span>Region:</span>{" "}
-                                          {currentCountry.region}
-                                      </li>
-                                      <li>
-                                          <span>Sub Region:</span>{" "}
-                                          {currentCountry.subregion}
-                                      </li>
-                                      <li>
-                                          <span>Capital:</span>{" "}
-                                          {currentCountry.capital}
-                                      </li>
-                                  </ul>
-                                  <ul>
-                                      <li>
-                                          <span>Top Level Domain:</span>{" "}
-                                          {currentCountry.tld}
-                                      </li>
-                                      <li>
-                                          <span>Currencies:</span>{" "}
-                                          {getAllCurrencies(
-                                              currentCountry.currencies
-                                          )}
-                                      </li>
-                                      <li>
-                                          <span>Languages:</span>{" "}
-                                          {Object.values(
-                                              currentCountry.languages
-                                          ).join(", ")}
-                                      </li>
-                                  </ul>
+                                    <ul>
+                                        <li>
+                                            <span>Population:</span>{" "}
+                                            {currentCountry.population.toLocaleString()}
+                                        </li>
+                                        <li>
+                                            <span>Region:</span>{" "}
+                                            {currentCountry.region}
+                                        </li>
+                                        <li>
+                                            <span>Sub Region:</span>{" "}
+                                            {currentCountry.subregion}
+                                        </li>
+                                        <li>
+                                            <span>Capital:</span>{" "}
+                                            {currentCountry.capital}
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <span>Top Level Domain:</span>{" "}
+                                            {currentCountry.tld}
+                                        </li>
+                                        <li>
+                                            <span>Currencies:</span>{" "}
+                                            {getAllCurrencies(
+                                                currentCountry.currencies
+                                            )}
+                                        </li>
+                                        <li>
+                                            <span>Languages:</span>{" "}
+                                            {getAllLanguages(
+                                                currentCountry.languages
+                                            )}
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             {currentCountry.borders ? (
