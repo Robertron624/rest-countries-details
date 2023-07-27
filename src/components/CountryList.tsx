@@ -13,19 +13,21 @@ interface Props {
 }
 const CountryList = ({ currentFilter }: Props) => {
     const [countries, setCountries] = useState<Country[]>([]);
+
+    const [displayedCountries, setDisplayedCountries] = useState<Country[]>([]);
+
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
 
     useEffect(() => {
-        // Get all countries from the API
-        const fetchCountries = async () => {
+        // Get all countries from the API, firts show 8 countries then add more when the user scrolls down
+
+        const getCountries = async () => {
             setIsLoading(true);
             try {
                 const response = await axios.get<Country[]>(BASE_URL);
-
-                // limit the number of countries to 8
-                const countries = response.data.slice(0, 8);
-                setCountries(countries);
+                setCountries(response.data);
+                setDisplayedCountries(response.data.slice(0, 9));
             } catch (error) {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
                 setError(error.message);
@@ -34,7 +36,6 @@ const CountryList = ({ currentFilter }: Props) => {
             }
         };
 
-        // Function for filtering countries by region
         const filterCountries = async (filter: Filter) => {
             const filterZoneUrl = `https://restcountries.com/v3.1/region/${filter.name}`;
 
@@ -54,12 +55,34 @@ const CountryList = ({ currentFilter }: Props) => {
             }
         };
 
+    
         if (currentFilter) {
             void filterCountries(currentFilter);
         } else {
-            void fetchCountries();
+            void getCountries();
         }
+    
     }, [currentFilter]);
+
+    // Watch when the user scrolls down to add more countries to the list taking into account the current filter
+    
+    useEffect(() => {
+        const handleScroll = () => {
+            const { scrollTop, clientHeight, scrollHeight } =
+                document.documentElement;
+            if (scrollTop + clientHeight >= scrollHeight - 5) {
+                setDisplayedCountries((prev) => [
+                    ...prev,
+                    ...countries.slice(prev.length, prev.length + 9),
+                ]);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [countries]);
+
 
     if (isLoading) {
         return <Spinner />;
@@ -71,8 +94,8 @@ const CountryList = ({ currentFilter }: Props) => {
 
     return (
         <div className="list-container">
-            {countries.map((country: Country) => (
-                <CountryCard key={country.name.official} {...country} />
+            {displayedCountries.map((country) => (
+                <CountryCard key={country.name.common} {...country} />
             ))}
         </div>
     );
