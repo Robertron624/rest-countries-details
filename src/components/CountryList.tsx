@@ -43,10 +43,8 @@ const CountryList = ({ currentFilter }: Props) => {
 
             try {
                 const response = await axios.get<Country[]>(filterZoneUrl);
-
-                // limit the number of countries to 8
-                const countries = response.data.slice(0, 8);
-                setCountries(countries);
+                setCountries(response.data);
+                setDisplayedCountries(response.data.slice(0, 9));
             } catch (error) {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
                 setError(error.message);
@@ -102,3 +100,51 @@ const CountryList = ({ currentFilter }: Props) => {
 };
 
 export default CountryList;
+
+/*
+useEffect(() => {
+    // Get all countries from the API
+    const fetchCountries = async () => {
+        setIsLoading(true);
+        try {
+            const response = await axios.get<Country[]>(BASE_URL);
+
+            // limit the number of countries to 8
+            const countries = response.data.slice(0, 8);
+            setCountries(countries);
+        } catch (error) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    // Function for filtering countries by region
+    const filterCountries = async (filter: Filter) => {
+        const filterZoneUrl = `https://restcountries.com/v3.1/region/${filter.name}`;
+
+        setIsLoading(true);
+
+        try {
+            const response = await axios.get<Country[]>(filterZoneUrl);
+
+            // limit the number of countries to 8
+            const countries = response.data.slice(0, 8);
+            setCountries(countries);
+        } catch (error) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    if (currentFilter) {
+        void filterCountries(currentFilter);
+    } else {
+        void fetchCountries();
+    }
+}, [currentFilter]);
+
+*/
