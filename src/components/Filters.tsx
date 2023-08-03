@@ -11,7 +11,7 @@ interface Props {
 const Filters = ({filters, currentFilter, setCurrentFilter}: Props) => {
   return (
     <div className='filters flex'>
-        <select value={currentFilter?.value} onChange={(e) => {
+        <select name='filters' aria-label='filter' value={currentFilter?.value} onChange={(e) => {
             const selectedFilter = filters.find(filter => filter.value === e.target.value)
             setCurrentFilter(selectedFilter || null)
         }

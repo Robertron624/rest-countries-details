@@ -71,7 +71,7 @@ const CountryDetail = () => {
                         <div className="flag-container">
                             <img
                                 src={currentCountry.flags.png}
-                                alt={currentCountry.name.common}
+                                alt={`${currentCountry.name.common} flag`}
                             />
                         </div>
                         <div className="info-and-borders">

@@ -13,7 +13,7 @@ const CountryCard = (country: Country) => {
         <NavLink to={`/country/${name.common}`}>
             <div className="country-card text-left mx-auto">
                 <div className="image-container">
-                    <img src={flags.png} alt={flags.alt} />
+                    <img src={flags.png} alt={`${name.common} flag`} />
                 </div>
                 <div className="bottom">
                     <h3 className="country-name">{name.common}</h3>

@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <header className="flex justify-between">
             <div className="header-inner flex justify-between mx-auto">
-                <a href="/">Where in the world?</a>
+                <a href="/"> <h1>Where in the world?</h1></a>
                 <button onClick={toggleTheme} className="flex align-center">
                     {theme === "light" ? (
                         <svg
