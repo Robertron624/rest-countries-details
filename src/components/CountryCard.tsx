@@ -20,7 +20,7 @@ const CountryCard = (country: Country) => {
                     <img src={flags.png} alt={`${name.common} flag`} />
                 </div>
                 <div className="bottom">
-                    <h3 className="country-name">{name.common}</h3>
+                    <p className="country-name">{name.common}</p>
                     <div className="short-info">
                         <p>
                             <span>Population:</span>{" "}
