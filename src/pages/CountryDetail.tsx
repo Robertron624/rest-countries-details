@@ -37,11 +37,16 @@ const getAllLanguages = (languages: Languages): string => {
     return languagesAsString.join(", ");
 };
 
+const formatUrlAsName = (url: string) => {
+    return url.replace(/-/g, " ").toLowerCase();
+}
+
+
 const CountryDetail = () => {
     const { country } = useParams();
 
     // force country to be a string
-    const countryString = country as string;
+    const countryString = formatUrlAsName(country as string);
 
     // Use hook to get the country details
     const { countries, isLoading, error } = useSearch(countryString);

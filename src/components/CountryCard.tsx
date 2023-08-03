@@ -6,11 +6,15 @@ const formatPopulation = (population: number) => {
     return population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
+const formatNameAsUrl = (name: string) => {
+    return name.replace(/\s+/g, "-").toLowerCase();
+}
+
 const CountryCard = (country: Country) => {
     const { name, population, region, capital, flags } = country;
 
     return (
-        <NavLink to={`/country/${name.common}`}>
+        <NavLink to={`/country/${formatNameAsUrl(name.common)}`}>
             <div className="country-card text-left mx-auto">
                 <div className="image-container">
                     <img src={flags.png} alt={`${name.common} flag`} />
